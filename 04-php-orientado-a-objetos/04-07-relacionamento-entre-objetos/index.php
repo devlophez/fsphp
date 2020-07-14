@@ -10,6 +10,24 @@ require __DIR__ . "/source/autoload.php";
  */
 fullStackPHPClassSession("associacão", __LINE__);
 
+$company = new \Source\Related\Company();
+$company->bootCompany(
+    "CredVip",
+    "Av. Central"
+);
+
+var_dump($company);
+
+$address = new \Source\Related\Address("Avenida Central", "1884-A", "Andar 1");
+
+$company->boot(
+    "CredVip",
+    $address
+);
+
+var_dump($company);
+
+echo "<p>A {$company->getCompany()} tem sede na rua {$company->getAddress()->getStreet()}</p>";
 
 /*
  * [ agregação ] Em agregação tornamos um objeto externo parte do objeto base, contudo não
@@ -17,6 +35,25 @@ fullStackPHPClassSession("associacão", __LINE__);
  */
 fullStackPHPClassSession("agregação", __LINE__);
 
+$fsphp = new \Source\Related\Product("Full Stack PHP Developer", 1997);
+$laradev = new \Source\Related\Product("Laravel Developer", 997);
+
+var_dump($fsphp, $laradev);
+
+$company->addProduct($fsphp);
+$company->addProduct($laradev);
+$company->addProduct(
+    new \Source\Related\Product("Work Control Dev", 2997)
+);
+
+var_dump($company);
+
+/**
+ * @var \Source\Related\Product $product
+ */
+foreach ($company->getProducts() as $product){
+    echo "<p>{$product->getName()} por {$product->getPrice()}</p>";
+}
 
 /*
  * [ composição ] Em composição temos um objeto base que é responsável por instanciar o
@@ -24,12 +61,14 @@ fullStackPHPClassSession("agregação", __LINE__);
  */
 fullStackPHPClassSession("composição", __LINE__);
 
+$company->addTeamMember("CEO", "Gerson", "James");
+$company->addTeamMember("Developer PHP", "Pedro", "Silva");
+$company->addTeamMember("Developer JS", "Airton", "Sousa");
 
+/**
+ * @var \Source\Related\User $member
+ */
 
-
-
-
-
-
-
-
+foreach ($company->getTeam() as $member){
+    echo "<p>O {$member->getJob()} é o {$member->getFirstName()}</p>";
+}
