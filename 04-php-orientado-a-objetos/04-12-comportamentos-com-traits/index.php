@@ -9,3 +9,41 @@ require __DIR__ . "/source/autoload.php";
  * do objeto (BEHAVES LIKE). http://php.net/manual/pt_BR/language.oop5.traits.php
  */
 fullStackPHPClassSession("trait", __LINE__);
+
+$user = new \Source\Traits\User(
+    "Pedro",
+    "Silva",
+    "pedro@credvip.com"
+);
+
+$address = new \Source\Traits\Address(
+    "Trav. Ernesto Geisel",
+    "1119",
+    "Residência"
+);
+
+$register = new \Source\Traits\Register(
+    $user,
+    $address
+);
+
+var_dump(
+    $register,
+    $register->getUser(),
+    $register->getUser()->getFirstName(),
+    $register->getAddress(),
+    $register->getAddress()->getStreet()
+);
+
+$cart = new \Source\Traits\Cart();
+
+$cart->add("1", "fsphp developer", 1, 2000);
+$cart->add("2", "laravel developer", 2, 1000);
+$cart->add("3", "wordpress developer", 5, 500);
+
+$cart->remove(2, 1);
+$cart->remove(3, 5);
+
+$cart->checkout($user, $address);
+
+var_dump($cart);
