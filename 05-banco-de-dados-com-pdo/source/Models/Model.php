@@ -141,6 +141,7 @@ abstract class Model
     }
 
     /**
+     *
      * colunas que não podem ser persistidos na rotina.
      * então esses campos estarão salvos ou protegidos,
      * ou seja,

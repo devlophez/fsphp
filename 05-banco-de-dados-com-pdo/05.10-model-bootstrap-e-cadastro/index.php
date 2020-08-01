@@ -29,7 +29,7 @@ fullStackPHPClassSession("save create", __LINE__);
 //$user->created_at = date("Y/m/d H:i");
 
 if (!$model->find($user->email)) {
-    echo "<p class='trigger warning'>Cadastro</p>";
+    echo "<p class='trigger accept'>Cadastro</p>";
     $user->save();
 } else {
     echo "<p class='trigger warning'>Read</p>";

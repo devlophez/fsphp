@@ -130,12 +130,12 @@ class UserModel extends Model
     private function required(): bool
     {
         if(empty($this->first_name) || empty($this->last_name) || empty($this->email)){
-            $this->message = "Nome, sobrenome e e-mail são obrigatorios";
+            $this->message = "Nome, sobrenome e e-mail são obrigatórios!";
             return false;
         }
 
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
-            $this->message = "O e-mail informado não parece válido";
+            $this->message = "O e-mail informado não parece válido!";
             return false;
         }
 
