@@ -29,7 +29,7 @@ abstract class Model
      */
     public function __set($name, $value)
     {
-        if(empty($this->data)){
+        if (empty($this->data)) {
             $this->data = new \stdClass();
         }
 
@@ -79,9 +79,33 @@ abstract class Model
         return $this->message;
     }
 
-    protected function create()
+    /**
+     * @param string $entity
+     * @param array $data
+     *
+     * persiste e cria o novo registro no banco de dados
+     *
+     */
+    protected function create(string $entity, array $data): ?int
     {
 
+        try {
+            $columns = implode(", ", array_keys($data));
+            $values = ":" . implode(", :", array_keys($data));
+
+//            echo "INSERT INTO $entity ({$columns}) VALUES ({$values})";
+
+            $query = "INSERT INTO $entity ({$columns}) VALUES ({$values})";
+            $stmt = Connect::getInstance()->prepare($query);
+
+            $stmt->execute($this->filter($data));
+
+            return Connect::getInstance()->lastInsertId();
+
+        } catch (\PDOException $exception) {
+            $this->fail = $exception;
+            return null;
+        }
     }
 
     protected function read(string $select, $params = null): ?\PDOStatement
@@ -117,7 +141,7 @@ abstract class Model
     }
 
     /**
-     * colunas que não podem ser persistidos na rotina
+     * colunas que não podem ser persistidos na rotina.
      * então esses campos estarão salvos ou protegidos,
      * ou seja,
      * prevenir o cadastro de informações que não
@@ -125,14 +149,25 @@ abstract class Model
      */
     protected function safe(): ?array
     {
+        $safe = (array)$this->data;
 
+        foreach (static::$safe as $unset) {
+            unset($safe[$unset]);
+        }
+
+        return $safe;
     }
 
     /**
-     * será filtrado antes dos campos serem filtrados no banco
+     * será filtrado e verificados antes dos campos serem persistidos no banco
      */
-    private function filter()
+    private function filter(array $data): ?array
     {
+        $filter = [];
+        foreach ($data as $key => $value) {
+            $filter[$key] = (is_null($value) ? null : filter_var($value, FILTER_SANITIZE_SPECIAL_CHARS));
+        }
 
+        return $filter;
     }
 }
