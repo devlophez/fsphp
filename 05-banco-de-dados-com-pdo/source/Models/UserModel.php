@@ -90,13 +90,27 @@ class UserModel extends Model
 //        $this->safe();
 //        $this->filter($this->safe());
 
-        if(!$this->required()){
+        if (!$this->required()) {
             return null;
         }
 
         //Atualizar -> Model@update
         if (!empty($this->id)) {
             $userId = $this->id;
+
+            $email = $this->read("SELECT id FROM users WHERE email = :email AND id = :id", "email={$this->email}&id={$userId}");
+
+            if ($email->rowCount()) {
+                $this->message = "o e-mail informado já está cadastrado.";
+                return null;
+            }
+
+            $this->update(self::$entity, $this->safe(), "id = :id", "id={$userId}");
+            if ($this->fail()) {
+                $this->message = "Erro ao atualizar, verifique os dados informados.";
+            }
+
+            $this->message = "Cadastro atualziado com sucesso!";
         }
 
         //Cadastrar -> Model->create
@@ -110,7 +124,7 @@ class UserModel extends Model
 
             $userId = $this->create(self::$entity, $this->safe());
             if ($this->fail()) {
-                $this->message = "Erro a cadastrar, verifique os dados informados.";
+                $this->message = "Erro ao cadastrar, verifique os dados informados.";
             }
 
             $this->message = "Cadastro realizado com sucesso!";
@@ -129,12 +143,12 @@ class UserModel extends Model
 
     private function required(): bool
     {
-        if(empty($this->first_name) || empty($this->last_name) || empty($this->email)){
+        if (empty($this->first_name) || empty($this->last_name) || empty($this->email)) {
             $this->message = "Nome, sobrenome e e-mail são obrigatórios!";
             return false;
         }
 
-        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $this->message = "O e-mail informado não parece válido!";
             return false;
         }

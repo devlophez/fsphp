@@ -9,4 +9,19 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("save update", __LINE__);
 
+$model = new \Source\Models\UserModel();
 
+$user = $model->load(5);
+
+$user->first_name = "Airton";
+$user->last_name = "Sousa";
+$user->email = "airton@credvip.com";
+
+if($user != $model->load(5)){
+    $user->save();
+    echo "<p class='trigger accept'>Atualizado!</p>";
+}else{
+    echo "<p class='trigger warning'>Já atualizado!</p>";
+}
+
+var_dump($user);
