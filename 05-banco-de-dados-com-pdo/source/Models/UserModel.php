@@ -4,6 +4,10 @@
 namespace Source\Models;
 
 
+/**
+ * Class UserModel
+ * @package Source\Models
+ */
 class UserModel extends Model
 {
     /**
@@ -37,6 +41,11 @@ class UserModel extends Model
         return $this;
     }
 
+    /**
+     * @param int $id
+     * @param string $columns
+     * @return UserModel|null
+     */
     public function load(int $id, string $columns = "*"): ?UserModel
     {
         $load = $this->read("SELECT {$columns} FROM " . self::$entity . " WHERE id = :id", "id={$id}");
@@ -53,6 +62,11 @@ class UserModel extends Model
         return $load->fetchObject(__CLASS__);
     }
 
+    /**
+     * @param $email
+     * @param string $columns
+     * @return UserModel|null
+     */
     public function find($email, string $columns = "*"): ?UserModel
     {
         $find = $this->read("SELECT {$columns} FROM " . self::$entity . " WHERE email = :email", "email={$email}");
@@ -69,6 +83,12 @@ class UserModel extends Model
         return $find->fetchObject(__CLASS__);
     }
 
+    /**
+     * @param int $limit
+     * @param int $offset
+     * @param string $columns
+     * @return array|null
+     */
     public function all(int $limit = 30, int $offset = 0, string $columns = "*"): ?array
     {
         $all = $this->read("SELECT {$columns} FROM " . self::$entity . " LIMIT :limit OFFSET :offset", "limit={$limit}&offset={$offset}");
@@ -85,6 +105,9 @@ class UserModel extends Model
         return $all->fetchAll(\PDO::FETCH_CLASS, __CLASS__);
     }
 
+    /**
+     * @return $this|null
+     */
     public function save()
     {
 //        $this->safe();
@@ -136,11 +159,28 @@ class UserModel extends Model
 
     }
 
-    public function destroy()
+    /**
+     * @return $this|null
+     */
+    public function destroy(): ?UserModel
     {
+        if (!empty($this->id)) {
+            $this->delete(self::$entity, "id = :id", "id={$this->id}");
+        }
 
+        if ($this->fail()) {
+            $this->message = "Erro ao remover, verifique os dados informados.";
+            return null;
+        }
+
+        $this->message = "Cadastro removido com sucesso!";
+        $this->data = null;
+        return $this;
     }
 
+    /**
+     * @return bool
+     */
     private function required(): bool
     {
         if (empty($this->first_name) || empty($this->last_name) || empty($this->email)) {

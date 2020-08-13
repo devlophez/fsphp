@@ -6,6 +6,10 @@ namespace Source\Models;
 
 use Source\Database\Connect;
 
+/**
+ * Class Model
+ * @package Source\Models
+ */
 abstract class Model
 {
     /**
@@ -39,7 +43,6 @@ abstract class Model
     /**
      * - Vai servir para validar se aquele recurso realmente é válido
      */
-
     public function __isset($name)
     {
         return isset($this->data->$name);
@@ -108,6 +111,11 @@ abstract class Model
         }
     }
 
+    /**
+     * @param string $select
+     * @param null $params
+     * @return \PDOStatement|null
+     */
     protected function read(string $select, $params = null): ?\PDOStatement
     {
         try {
@@ -130,6 +138,13 @@ abstract class Model
         }
     }
 
+    /**
+     * @param string $entity
+     * @param array $data
+     * @param string $terms
+     * @param string $params
+     * @return int|null
+     */
     protected function update(string $entity, array $data, string $terms, string $params): ?int
     {
 //        var_dump(
@@ -169,9 +184,26 @@ abstract class Model
         }
     }
 
-    protected function delete()
+    /**
+     * @param string $entity
+     * @param string $terms
+     * @param string $params
+     * @return int|null
+     */
+    protected function delete(string $entity, string $terms, string $params): ?int
     {
+        try {
+            $stmt = Connect::getInstance()->prepare("DELETE FROM {$entity} WHERE {$terms}");
+            parse_str($params, $params);
+            $stmt->execute($params);
+            return ($stmt->rowCount() ?? 1);
+        } catch (\PDOException $exception) {
+            $this->fail = $exception;
+            return null;
+        }
+//        echo "DELETE FROM {$entity} WHERE {$terms}";
 
+//        var_dump($entity, $terms, $params);
     }
 
     /**
