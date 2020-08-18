@@ -1,14 +1,14 @@
 <?php
 
-
 namespace Source\Models;
 
+use Source\Core\Model;
 
 /**
  * Class User
  * @package Source\Models
  */
-class UserModel extends Model
+class User extends Model
 {
     /**
      * @var array $safe no update or create
