@@ -70,7 +70,7 @@ class Connect
     }
 
     /**
-     * Connect clone
+     *
      */
     final private function __clone()
     {

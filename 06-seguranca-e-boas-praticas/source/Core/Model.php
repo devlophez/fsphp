@@ -1,6 +1,8 @@
 <?php
 
+
 namespace Source\Core;
+
 
 /**
  * Class Model

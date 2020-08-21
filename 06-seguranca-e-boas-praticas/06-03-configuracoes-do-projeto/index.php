@@ -2,7 +2,7 @@
 require __DIR__ . '/../../fullstackphp/fsphp.php';
 fullStackPHPClassName("06.03 - Configurações do projeto");
 
-require __DIR__ . "/source/autoload.php";
+require __DIR__ . "/../source/autoload.php";
 
 /*
  * [ configurações ] Um acesso global a tudo que pode ser configurado no projeto.

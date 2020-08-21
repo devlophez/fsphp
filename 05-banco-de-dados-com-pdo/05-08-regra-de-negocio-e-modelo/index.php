@@ -23,7 +23,7 @@ var_dump(
  */
 fullStackPHPClassSession("model", __LINE__);
 
-$model = new \Source\Models\UserModel();
+$model = new \Source\Models\User();
 
 var_dump(
     $model,
