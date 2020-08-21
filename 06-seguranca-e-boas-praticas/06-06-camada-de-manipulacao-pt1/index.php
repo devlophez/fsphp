@@ -9,7 +9,7 @@ require __DIR__ . "/../source/autoload.php";
  */
 fullStackPHPClassSession("string", __LINE__);
 
-$string = "Essa é uma string, nela temos um under_score e guarda-chuva";
+$string = "Essa é uma string, nela temos um under_score e um guarda-chuva!";
 
 $message = new \Source\Core\Message();
 
