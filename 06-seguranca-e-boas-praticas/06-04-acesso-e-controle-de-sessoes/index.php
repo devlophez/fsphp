@@ -22,7 +22,7 @@ $session = new \Source\Core\Session();
 //    $session->set("login", $user);
 //}
 
-$session->destroy();
+//$session->destroy();
 
 
 var_dump(
