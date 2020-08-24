@@ -17,7 +17,8 @@ define("CONF_DB_NAME", "fsphp_pdo");
 //define("CONF_URL_BASE", "http://localhost/fsphp");
 
 //Linux
-define("CONF_URL_BASE", "http://localhost/web/upinside/fsphp");
+//define("CONF_URL_BASE", "http://localhost/web/upinside/fsphp");
+define("CONF_URL_BASE", "http://localhost/web/upinside/fsphp/06-seguranca-e-boas-praticas/06-08-camada-de-manipulacao-pt3");
 define("CONF_URL_ADMIN", CONF_URL_BASE . "/admin");
 define("CONF_URL_ERROR", CONF_URL_BASE . "/404");
 
@@ -33,9 +34,14 @@ define("CONF_DATE_APP", "Y-m-d H:i:s");
 define("CONF_SES_PATH", __DIR__ . "/../../storage/sessions");
 
 /**
+ * PASSWORD
+ */
+define("CONF_PASSWD_MIN_LEN", 8);
+define("CONF_PASSWD_MAX_LEN", 40);
+
+/**
  * MESSAGE
  */
-
 define("CONF_MESSAGE_CLASS", "trigger");
 define("CONF_MESSAGE_INFO", "info");
 define("CONF_MESSAGE_SUCCESS", "success");

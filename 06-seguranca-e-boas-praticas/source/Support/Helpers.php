@@ -1,10 +1,38 @@
 <?php
 
+
+/**
+ * ####################
+ * ###   VALIDATE   ###
+ * ####################
+ */
+
+
+/**
+ * @param string $email
+ * @return bool
+ */
+function is_email(string $email): bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+
+/**
+ * @param string $password
+ * @return bool
+ */
+function is_password(string $password): bool
+{
+    return mb_strlen($password) >= CONF_PASSWD_MIN_LEN && mb_strlen($password) <= CONF_PASSWD_MAX_LEN;
+}
+
 /**
  * ##################
  * ###   STRING   ###
  * ##################
  */
+
 
 /**
  * captura uma string qualquer e transforma isso em url
@@ -118,4 +146,82 @@ function str_limit_chars(string $string, int $limit, string $pointer = "..."): s
 
     $chars = mb_substr($string, 0, mb_strripos(mb_substr($string, 0, $limit), " "));
     return "{$chars}{$pointer}";
+}
+
+/**
+ * ##################
+ * ###   STRING   ###
+ * ##################
+ */
+
+/**
+ * @param string $url
+ * @return string
+ */
+function url(string $path): string
+{
+    return CONF_URL_BASE . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
+}
+
+/**
+ * ####################
+ * ###   NAVIGATE   ###
+ * ####################
+ */
+
+/**
+ * @param string $url
+ */
+function redirect(string $url): void
+{
+    //para poder informar o redirecionamento para os diferentes motores (google, api, etc).
+    header("HTTP/1.1 302 Redirect");
+
+    //Quando há a necessidade de um redirecionamento externo com https ou http.
+    if (filter_var($url, FILTER_VALIDATE_URL)) {
+        header("Location: {$url}");
+        exit;
+    }
+
+    $location = url($url);
+    header("Location: {$location}");
+    exit;
+}
+
+/**
+ * ################
+ * ###   CORE   ###
+ * ################
+ */
+
+/**
+ * @return PDO
+ */
+function connect(): PDO
+{
+    return \Source\Core\Connect::getInstance();
+}
+
+/**
+ * @return \Source\Core\Message
+ */
+function message(): \Source\Core\Message
+{
+    return new \Source\Core\Message();
+}
+
+/**
+ * @return \Source\Core\Session
+ */
+function session(): \Source\Core\Session
+{
+    return new \Source\Core\Session();
+}
+
+/**
+ * @return \Source\Models\User
+ */
+function user(): \Source\Models\User
+{
+    return new \Source\Models\User();
 }
