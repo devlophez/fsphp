@@ -21,9 +21,17 @@ abstract class Model
     protected $fail;
 
     /**
-     * @var string|null
+     * @var Message|null
      */
     protected $message;
+
+    /**
+     * Model constructor.
+     */
+    public function __construct()
+    {
+        $this->message = new Message();
+    }
 
     /**
      * quando for atribuido uma propriedade que não esteja acessível
@@ -73,9 +81,9 @@ abstract class Model
     }
 
     /**
-     * @return string|null
+     * @return Message|null
      */
-    public function message(): ?string
+    public function message(): ?Message
     {
         return $this->message;
     }
@@ -234,5 +242,19 @@ abstract class Model
         }
 
         return $filter;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function required(): bool
+    {
+        $data = (array)$this->data();
+        foreach (static::$required as $field) {
+            if (empty($data[$field])) {
+                return false;
+            }
+        }
+        return true;
     }
 }
