@@ -122,7 +122,7 @@ class User extends Model
         if (!empty($this->id)) {
             $userId = $this->id;
 
-            $email = $this->read("SELECT id FROM users WHERE email = :email AND id = :id", "email={$this->email}&id={$userId}");
+            $email = $this->read("SELECT id FROM users WHERE email = :email AND id != :id", "email={$this->email}&id={$userId}");
 
             if ($email->rowCount()) {
                 $this->message = "o e-mail informado já está cadastrado.";
