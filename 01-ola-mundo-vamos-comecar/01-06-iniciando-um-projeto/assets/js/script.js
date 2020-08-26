@@ -1,1 +1,0 @@
-document.getElementById("js").innerHTML = "Aqui esta o seu JS!";

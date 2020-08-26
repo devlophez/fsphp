@@ -23,6 +23,10 @@ function is_email(string $email): bool
  */
 function is_password(string $password): bool
 {
+    //verifica se é uma hash de senha
+    if (password_get_info($password)['algo']) {
+        return true;
+    }
     return mb_strlen($password) >= CONF_PASSWD_MIN_LEN && mb_strlen($password) <= CONF_PASSWD_MAX_LEN;
 }
 
