@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'd28023281d0030c6f5feb3906bf9291b82ce5400',
+    'reference' => '1e349bbc479b03b50c52625f4573f3926a945729',
     'name' => 'pedroleandro/fsphp',
   ),
   'versions' => 
@@ -31,7 +31,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'd28023281d0030c6f5feb3906bf9291b82ce5400',
+      'reference' => '1e349bbc479b03b50c52625f4573f3926a945729',
+    ),
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.1.7',
+      'version' => '6.1.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0',
     ),
   ),
 );
