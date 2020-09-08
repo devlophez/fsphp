@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b1f2577dd7313d5c036551571ebc37313aa2fa64',
+    'reference' => 'd1205d8f6364c10d5129f30d89ca7a023746a96d',
     'name' => 'pedroleandro/fsphp',
   ),
   'versions' => 
   array (
+    'coffeecode/cropper' => 
+    array (
+      'pretty_version' => '1.3.1',
+      'version' => '1.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ecc9a275d1cbb4117ab52233f298f4c4b85de71a',
+    ),
     'coffeecode/uploader' => 
     array (
       'pretty_version' => '1.0.10',
@@ -36,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b1f2577dd7313d5c036551571ebc37313aa2fa64',
+      'reference' => 'd1205d8f6364c10d5129f30d89ca7a023746a96d',
     ),
     'phpmailer/phpmailer' => 
     array (
@@ -46,6 +55,24 @@
       array (
       ),
       'reference' => '2c2370ba3df7034f9eb7b8f387c97b52b2ba5ad0',
+    ),
+    'rosell-dk/image-mime-type-guesser' => 
+    array (
+      'pretty_version' => '0.3',
+      'version' => '0.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '204fd61ca81e3b0ba46c6165dab8f74816b1fe99',
+    ),
+    'rosell-dk/webp-convert' => 
+    array (
+      'pretty_version' => '2.3.2',
+      'version' => '2.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5da7989e87cc0b6c61a5fd73262ed28999be27ab',
     ),
   ),
 );
