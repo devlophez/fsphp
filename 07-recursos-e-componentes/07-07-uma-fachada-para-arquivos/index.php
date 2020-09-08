@@ -9,6 +9,20 @@ require __DIR__ . "/../vendor/autoload.php";
  */
 fullStackPHPClassSession("image", __LINE__);
 
+use Source\Support\Upload;
+
+$upload = new Upload();
+
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+
+if ($post && $post["send"] == "image") {
+    $u = $upload->image($_FILES["file"], $post["name"], 500);
+    if ($u) {
+        echo "<img src='{$u}' style='width: 100%'>";
+    } else {
+        echo $upload->message();
+    }
+}
 
 $formSend = "image";
 require __DIR__ . "/form.php";
@@ -19,6 +33,14 @@ require __DIR__ . "/form.php";
  */
 fullStackPHPClassSession("file", __LINE__);
 
+if ($post && $post["send"] == "file") {
+    $u = $upload->file($_FILES["file"], $post["name"]);
+    if ($u) {
+        echo "<p class='trigger info'><a target='_blank' href='{$u}'>Ver arquivo</a></p>";
+    } else {
+        echo $upload->message();
+    }
+}
 
 $formSend = "file";
 require __DIR__ . "/form.php";
@@ -29,6 +51,19 @@ require __DIR__ . "/form.php";
  */
 fullStackPHPClassSession("media", __LINE__);
 
+if ($post && $post["send"] == "media") {
+    var_dump(
+        $post,
+        $_FILES ?? ""
+    );
+    $u = $upload->media($_FILES["file"], $post["name"]);
+
+    if ($u) {
+        echo "<p class='trigger info'><a target='_blank' href='{$u}'>Ver arquivo</a></p>";
+    } else {
+        echo $upload->message();
+    }
+}
 
 $formSend = "media";
 require __DIR__ . "/form.php";
@@ -38,3 +73,5 @@ require __DIR__ . "/form.php";
  * [ remove ] Um método adicional
  */
 fullStackPHPClassSession("remove", __LINE__);
+
+$upload->remove(__DIR__."/../storage/uploads/images/2020/09/nome-do-arquivo.jpg");

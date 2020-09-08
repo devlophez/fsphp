@@ -9,4 +9,5 @@ return array(
     'Source\\' => array($baseDir . '/source'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
+    'CoffeeCode\\Uploader\\' => array($vendorDir . '/coffeecode/uploader/src'),
 );

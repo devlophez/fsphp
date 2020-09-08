@@ -19,11 +19,20 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '516f9cf6821608e9b7dcadfe46cdc3b7d9590c67',
+    'reference' => 'b1f2577dd7313d5c036551571ebc37313aa2fa64',
     'name' => 'pedroleandro/fsphp',
   ),
   'versions' => 
   array (
+    'coffeecode/uploader' => 
+    array (
+      'pretty_version' => '1.0.10',
+      'version' => '1.0.10.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1fd58f13d41de26be36bef9fcebe54b865f3380e',
+    ),
     'league/plates' => 
     array (
       'pretty_version' => 'v4.0.0-alpha',
@@ -40,7 +49,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '516f9cf6821608e9b7dcadfe46cdc3b7d9590c67',
+      'reference' => 'b1f2577dd7313d5c036551571ebc37313aa2fa64',
     ),
     'phpmailer/phpmailer' => 
     array (
