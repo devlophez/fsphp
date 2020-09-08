@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '1e349bbc479b03b50c52625f4573f3926a945729',
+    'reference' => '516f9cf6821608e9b7dcadfe46cdc3b7d9590c67',
     'name' => 'pedroleandro/fsphp',
   ),
   'versions' => 
   array (
+    'league/plates' => 
+    array (
+      'pretty_version' => 'v4.0.0-alpha',
+      'version' => '4.0.0.0-alpha',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f53f4c1fa4bf307d0f3858a348172ff4faf7669a',
+    ),
     'pedroleandro/fsphp' => 
     array (
       'pretty_version' => 'dev-master',
@@ -18,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '1e349bbc479b03b50c52625f4573f3926a945729',
+      'reference' => '516f9cf6821608e9b7dcadfe46cdc3b7d9590c67',
     ),
     'phpmailer/phpmailer' => 
     array (
