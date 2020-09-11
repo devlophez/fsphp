@@ -7,6 +7,28 @@ define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "");
 define("CONF_DB_NAME", "fsphp_pdo");
 
+
+/**
+ * SITE
+ */
+
+define("CONF_SITE_NAME", "CredVip");
+define("CONF_SITE_LANG", "pt_BR");
+define("CONF_SITE_DOMAIN", "upinside.com.br");
+
+
+/**
+ * SOCIAL
+ */
+
+define("CONF_SOCIAL_TWITTER_CREATOR", "@pedroleandrog");
+define("CONF_SOCIAL_TWITTER_PUBLISHER", "@pedroleandrog");
+define("CONF_SOCIAL_FACEBOOK_APP", "629370597769942");
+define("CONF_SOCIAL_FACEBOOK_PAGE", "pedroleandro.gomesdasilva.3");
+define("CONF_SOCIAL_FACEBOOK_AUTHOR", "pedroleandro.gomesdasilva.3");
+define("CONF_SOCIAL_GOOGLE_PAGE", "");
+define("CONF_SOCIAL_GOOGLE_AUTHOR", "");
+
 /**
  * PROJECT URLs
  */
