@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3e52b054313a51c43daefc00bd407b6",
+    "content-hash": "0145955ece83f46b429755804a146bbe",
     "packages": [
         {
             "name": "coffeecode/cropper",
@@ -115,6 +115,54 @@
                 "source": "https://github.com/robsonvleite/optimizer/tree/master"
             },
             "time": "2018-09-26T16:57:12+00:00"
+        },
+        {
+            "name": "coffeecode/paginator",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robsonvleite/paginator.git",
+                "reference": "1addb23cc78cd2ed942504e370b307b3ed53bbbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robsonvleite/paginator/zipball/1addb23cc78cd2ed942504e370b307b3ed53bbbd",
+                "reference": "1addb23cc78cd2ed942504e370b307b3ed53bbbd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoffeeCode\\Paginator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robson V. Leite",
+                    "email": "cursos@upinside.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Paginator is simple and is ready to generate results navigation in your application",
+            "homepage": "http://www.upinside.com.br",
+            "keywords": [
+                "Coffeecode",
+                "pagination",
+                "paginator",
+                "upinside"
+            ],
+            "support": {
+                "issues": "https://github.com/robsonvleite/paginator/issues",
+                "source": "https://github.com/robsonvleite/paginator/tree/master"
+            },
+            "time": "2018-09-26T19:44:27+00:00"
         },
         {
             "name": "coffeecode/uploader",

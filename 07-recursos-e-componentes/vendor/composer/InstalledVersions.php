@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4e696691212b174aec8265e7cc751f2ae461ecf9',
+    'reference' => '6cc89ee5b7bf4753f00820b2759d23a1d2d81267',
     'name' => 'pedroleandro/fsphp',
   ),
   'versions' => 
@@ -41,6 +41,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'fc95df991c1d70933d623482078727bd3def56c6',
+    ),
+    'coffeecode/paginator' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1addb23cc78cd2ed942504e370b307b3ed53bbbd',
     ),
     'coffeecode/uploader' => 
     array (
@@ -67,7 +76,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4e696691212b174aec8265e7cc751f2ae461ecf9',
+      'reference' => '6cc89ee5b7bf4753f00820b2759d23a1d2d81267',
     ),
     'phpmailer/phpmailer' => 
     array (
