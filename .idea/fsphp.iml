@@ -13,6 +13,15 @@
       <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes/vendor/phpmailer/phpmailer" />
       <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes/vendor/rosell-dk/image-mime-type-guesser" />
       <excludeFolder url="file://$MODULE_DIR$/07-recursos-e-componentes/vendor/rosell-dk/webp-convert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/coffeecode/cropper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/coffeecode/optimizer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/coffeecode/paginator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/coffeecode/uploader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/plates" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/rosell-dk/image-mime-type-guesser" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/rosell-dk/webp-convert" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
