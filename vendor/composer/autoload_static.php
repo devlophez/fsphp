@@ -43,6 +43,7 @@ class ComposerStaticInit5e6a704d285a3d735921d1d7d21f3b97
         'C' => 
         array (
             'CoffeeCode\\Uploader\\' => 20,
+            'CoffeeCode\\Router\\' => 18,
             'CoffeeCode\\Paginator\\' => 21,
             'CoffeeCode\\Optimizer\\' => 21,
             'CoffeeCode\\Cropper\\' => 19,
@@ -73,6 +74,10 @@ class ComposerStaticInit5e6a704d285a3d735921d1d7d21f3b97
         'CoffeeCode\\Uploader\\' => 
         array (
             0 => __DIR__ . '/..' . '/coffeecode/uploader/src',
+        ),
+        'CoffeeCode\\Router\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coffeecode/router/src',
         ),
         'CoffeeCode\\Paginator\\' => 
         array (
