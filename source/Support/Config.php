@@ -14,7 +14,8 @@ define("CONF_DB_NAME", "fsphp");
 //define("CONF_URL_BASE", "http://localhost/fsphp/");
 
 //Linux
-define("CONF_URL_BASE", "");
+define("CONF_URL_BASE", "http://localhost/web/upinside/fsphp");
+define("CONF_URL_HOMO", "http://localhost/web/upinside/fsphp");
 define("CONF_URL_ADMIN", "/admin");
 
 /**
@@ -63,6 +64,7 @@ define("CONF_MESSAGE_ERROR", "error");
  * VIEW
  */
 define("CONF_VIEW_PATH", __DIR__ . "/../../shared/views");
+define("CONF_VIEW_THEME", "cafecontrol");
 define("CONF_VIEW_EXT", "php");
 
 /**
