@@ -36,6 +36,8 @@ define("CONF_SOCIAL_FACEBOOK_PAGE", "pedroleandro.gomesdasilva.3");
 define("CONF_SOCIAL_FACEBOOK_AUTHOR", "pedroleandro.gomesdasilva.3");
 define("CONF_SOCIAL_GOOGLE_PAGE", "");
 define("CONF_SOCIAL_GOOGLE_AUTHOR", "");
+define("CONF_SOCIAL_INSTAGRAM_PAGE", "pedroleandrogsilva");
+define("CONF_SOCIAL_YOUTUBE_PAGE", "");
 
 /**
  * DATES
