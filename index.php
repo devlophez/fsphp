@@ -19,6 +19,7 @@ $route = new Router(url(), "::");
 $route->namespace("Source\Controllers");
 $route->get("/", "Web::home");
 $route->get("/sobre", "Web::about");
+$route->get("/termos", "Web::terms");
 
 
 /**

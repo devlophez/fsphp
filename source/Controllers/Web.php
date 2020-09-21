@@ -26,6 +26,36 @@ class Web extends Controller
         ]);
     }
 
+    public function about()
+    {
+        $head = $this->seo->render(
+            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            CONF_SITE_DESC,
+            url(),
+            url("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("about", [
+            "head" => $head,
+            "video" => "Fl2xeTCxNQo"
+        ]);
+    }
+
+
+    public function terms()
+    {
+        $head = $this->seo->render(
+            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            CONF_SITE_DESC,
+            url(),
+            url("/assets/images/share.jpg")
+        );
+
+        echo $this->view->render("terms", [
+            "head" => $head
+        ]);
+    }
+
     public function error(array $data): void
     {
         $error = new \stdClass();
