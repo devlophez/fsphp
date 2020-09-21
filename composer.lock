@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b176f65986093d7385c9018ca9a63eb7",
+    "content-hash": "15084237c1bd36478e71a9d2a32e7325",
     "packages": [
         {
             "name": "coffeecode/cropper",

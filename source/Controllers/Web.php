@@ -13,15 +13,39 @@ class Web extends Controller
 
     public function home(): void
     {
+        $head = $this->seo->render(
+            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            CONF_SITE_DESC,
+            url(),
+            url("/assets/images/share.jpg")
+        );
+
         echo $this->view->render("home", [
-            "title" => "CafeControl - Gerencie suas contas com o melhor café"
+            "head" => $head,
+            "video" => "Fl2xeTCxNQo"
         ]);
     }
 
     public function error(array $data): void
     {
+        $error = new \stdClass();
+        $error->code = $data["errcode"];
+        $error->title = "Whoops!!! Serviço indisponível!";
+        $error->message = "Sinto muito :/, mas o conteúdo que você está tentando acessar não existe, está indisponível no momento ou já foi removido.";
+        $error->linkTitle = "Não fique por aqui. Continue navegando.";
+        $error->link = url_back();
+
+        $head = $this->seo->render(
+            "{$error->code} | {$error->title}",
+            $error->message,
+            url_back("/whops/{$error->code}"),
+            url("/assets/images/share.jpg"),
+            false
+        );
+
         echo $this->view->render("error", [
-            "title" => "{$data['errcode']} | Whooooops"
+            "head" => $head,
+            "error" => $error
         ]);
     }
 }
