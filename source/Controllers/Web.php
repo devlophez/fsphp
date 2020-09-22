@@ -4,6 +4,8 @@
 namespace Source\Controllers;
 
 
+use Source\Support\Pager;
+
 class Web extends Controller
 {
     public function __construct()
@@ -17,7 +19,7 @@ class Web extends Controller
             CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
             CONF_SITE_DESC,
             url(),
-            url("/assets/images/share.jpg")
+            theme("/assets/images/share.jpg")
         );
 
         echo $this->view->render("home", [
@@ -26,13 +28,13 @@ class Web extends Controller
         ]);
     }
 
-    public function about()
+    public function about(): void
     {
         $head = $this->seo->render(
-            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            "Sobre - " . CONF_SITE_NAME,
             CONF_SITE_DESC,
-            url(),
-            url("/assets/images/share.jpg")
+            url("/sobre"),
+            theme("/assets/images/share.jpg")
         );
 
         echo $this->view->render("about", [
@@ -41,14 +43,48 @@ class Web extends Controller
         ]);
     }
 
-
-    public function terms()
+    public function blog(?array $data): void
     {
         $head = $this->seo->render(
-            CONF_SITE_NAME . " - " . CONF_SITE_TITLE,
+            "Blog - " . CONF_SITE_TITLE,
+            "Confira em nosso blog dicas e sacadas de como controlar melhor suas contas. Vamos tomar um café?",
+            url("/blog"),
+            theme("/assets/images/share.jpg")
+        );
+
+        $pager = new Pager(url("/blog/page/"));
+        $pager->pager(100, 10, $data["page"] ?? 1);
+
+        echo $this->view->render("blog", [
+            "head" => $head,
+            "paginator" => $pager->render()
+        ]);
+    }
+
+    public function blogPost(array $data): void
+    {
+        $postName = $data["postName"];
+
+        $head = $this->seo->render(
+            "POST NAME - " . CONF_SITE_TITLE,
+            "POST HEADLINE",
+            url("/blog/{$postName}"),
+            theme("BLOG IMAGE")
+        );
+
+        echo $this->view->render("blog-post", [
+            "head" => $head,
+            "data" => $this->seo->data()
+        ]);
+    }
+
+    public function terms(): void
+    {
+        $head = $this->seo->render(
+            "Termos de uso - " . CONF_SITE_NAME,
             CONF_SITE_DESC,
-            url(),
-            url("/assets/images/share.jpg")
+            url("/termos"),
+            theme("/assets/images/share.jpg")
         );
 
         echo $this->view->render("terms", [
@@ -68,8 +104,8 @@ class Web extends Controller
         $head = $this->seo->render(
             "{$error->code} | {$error->title}",
             $error->message,
-            url_back("/whops/{$error->code}"),
-            url("/assets/images/share.jpg"),
+            url("/whops/{$error->code}"),
+            theme("/assets/images/share.jpg"),
             false
         );
 
