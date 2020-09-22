@@ -4,6 +4,7 @@
 namespace Source\Controllers;
 
 
+use Source\Core\Connect;
 use Source\Support\Pager;
 
 class Web extends Controller
@@ -165,11 +166,32 @@ class Web extends Controller
     public function error(array $data): void
     {
         $error = new \stdClass();
-        $error->code = $data["errcode"];
-        $error->title = "Whoops!!! Serviço indisponível!";
-        $error->message = "Sinto muito :/, mas o conteúdo que você está tentando acessar não existe, está indisponível no momento ou já foi removido.";
-        $error->linkTitle = "Não fique por aqui. Continue navegando.";
-        $error->link = url_back();
+
+        switch ($data["errcode"]) {
+            case "problemas":
+                $error->code = "OPS!!!";
+                $error->title = "Estamos enfrentando problemas!";
+                $error->message = "Parece que nossos serviços não estão disponíveis no momento. Já estamos analisando isso, mas caso seja urgente, nos envie um e-mail. :/";
+                $error->linkTitle = "Envie um e-mail.";
+                $error->link = "mailto:". CONF_MAIL_SUPPORT;
+                break;
+
+            case "manutencao":
+                $error->code = "OPS!!!";
+                $error->title = "Desculpe, estamos em manutenção!";
+                $error->message = "Voltamos logo! Neste momento estamos trabalhando para você controlar melhor as suas contas. :P";
+                $error->linkTitle = null;
+                $error->link = null;
+                break;
+
+            default:
+                $error->code = $data["errcode"];
+                $error->title = "Whoops!!! Serviço indisponível!";
+                $error->message = "Sinto muito :/, mas o conteúdo que você está tentando acessar não existe, está indisponível no momento ou já foi removido.";
+                $error->linkTitle = "Não fique por aqui. Continue navegando.";
+                $error->link = url_back();
+                break;
+        }
 
         $head = $this->seo->render(
             "{$error->code} | {$error->title}",

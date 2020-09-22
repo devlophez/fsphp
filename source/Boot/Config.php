@@ -96,6 +96,7 @@ define("CONF_MAIL_HOST", "smtp.sendgrid.net");
 define("CONF_MAIL_PORT", "587");
 define("CONF_MAIL_USER", "apikey");
 define("CONF_MAIL_PASS", "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");
+define("CONF_MAIL_SUPPORT", "developerfsphp@gmail.com");
 define("CONF_MAIL_SENDER", [
     "name" => "Pedro Leandro",
     "address" => "developerfsphp@gmail.com"

@@ -34,6 +34,8 @@ $route->get("/cadastrar", "Web::register");
 $route->get("/confirma", "Web::confirm");
 $route->get("/obrigado", "Web::success");
 
+//
+
 //services
 $route->get("/termos", "Web::terms");
 
