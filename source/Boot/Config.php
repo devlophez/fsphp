@@ -5,7 +5,7 @@
 define("CONF_DB_HOST", "localhost");
 define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "");
-define("CONF_DB_NAME", "fsphp");
+define("CONF_DB_NAME", "cafecontrol");
 
 /**
  * PROJECT URLs
@@ -68,7 +68,7 @@ define("CONF_MESSAGE_ERROR", "error");
  * VIEW
  */
 define("CONF_VIEW_PATH", __DIR__ . "/../../shared/views");
-define("CONF_VIEW_THEME", "cafecontrol");
+define("CONF_VIEW_THEME", "cafeweb");
 define("CONF_VIEW_EXT", "php");
 
 /**
