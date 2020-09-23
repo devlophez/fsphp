@@ -2,6 +2,7 @@
 
 namespace Source\Core;
 
+use Source\Models\User;
 use Source\Support\Message;
 
 /**
@@ -134,12 +135,23 @@ abstract class Model
     }
 
     /**
+     * @param int $id
+     * @param string $columns
+     * @return null|User
+     */
+    public function findById(int $id, string $columns = "*"): ?Model
+    {
+        return ($this->find("id = :id", "id={$id}", $columns))->fetch();
+    }
+
+    /**
      * @param string $columnOrder
      * @return Model
      */
     public function order(string $columnOrder): Model
     {
         $this->order = " ORDER BY {$columnOrder}";
+        return $this;
     }
 
     /**
@@ -149,6 +161,7 @@ abstract class Model
     public function limit(int $limit): Model
     {
         $this->limit = " LIMIT {$limit}";
+        return $this;
     }
 
     /**
@@ -158,6 +171,7 @@ abstract class Model
     public function offset(int $offset): Model
     {
         $this->offset = " OFFSET {$offset}";
+        return $this;
     }
 
     /**

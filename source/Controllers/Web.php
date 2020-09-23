@@ -5,6 +5,7 @@ namespace Source\Controllers;
 
 
 use Source\Core\Connect;
+use Source\Models\User;
 use Source\Support\Pager;
 
 class Web extends Controller
