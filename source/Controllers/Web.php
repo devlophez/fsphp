@@ -4,6 +4,8 @@
 namespace Source\Controllers;
 
 
+use Source\Controllers\Faq\Channel;
+use Source\Controllers\Faq\Question;
 use Source\Core\Connect;
 use Source\Models\User;
 use Source\Support\Pager;
@@ -41,7 +43,11 @@ class Web extends Controller
 
         echo $this->view->render("about", [
             "head" => $head,
-            "video" => "Fl2xeTCxNQo"
+            "video" => "Fl2xeTCxNQo",
+            "faq" => (new Question())
+                ->find("channel_id = :id", "id=1", "question, response")
+                ->order("order_by")
+                ->fetch(true)
         ]);
     }
 
@@ -174,7 +180,7 @@ class Web extends Controller
                 $error->title = "Estamos enfrentando problemas!";
                 $error->message = "Parece que nossos serviços não estão disponíveis no momento. Já estamos analisando isso, mas caso seja urgente, nos envie um e-mail. :/";
                 $error->linkTitle = "Envie um e-mail.";
-                $error->link = "mailto:". CONF_MAIL_SUPPORT;
+                $error->link = "mailto:" . CONF_MAIL_SUPPORT;
                 break;
 
             case "manutencao":
