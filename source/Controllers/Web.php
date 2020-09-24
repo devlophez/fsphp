@@ -39,7 +39,12 @@ class Web extends Controller
 
         echo $this->view->render("home", [
             "head" => $head,
-            "video" => "Fl2xeTCxNQo"
+            "video" => "Fl2xeTCxNQo",
+            "blog" => (new Post())
+                ->find()
+                ->order("post_at DESC")
+                ->limit(6)
+                ->fetch(true)
         ]);
     }
 
