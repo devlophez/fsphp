@@ -26,6 +26,7 @@ if (strpos(url(), "localhost")) {
 
     $minJs = new \MatthiasMullie\Minify\JS();
     $minJs->add(__DIR__ . "/../../shared/scripts/jquery.min.js");
+    $minJs->add(__DIR__ . "/../../shared/scripts/jquery.form.js");
     $minJs->add(__DIR__ . "/../../shared/scripts/jquery-ui.js");
 
     $jsDir = scandir(__DIR__ . "/../../themes/" . CONF_VIEW_THEME . "/assets/js");
