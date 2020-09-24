@@ -112,11 +112,11 @@ class Web extends Controller
         }
 
         $search = filter_var($data['terms'], FILTER_SANITIZE_STRIPPED);
-        $page = filter_var($data['page'], FILTER_VALIDATE_INT >= 1 ? $data['page'] : 1);
+        $page = (filter_var($data['page'], FILTER_VALIDATE_INT) >= 1 ? $data['page'] : 1);
 
         $head = $this->seo->render(
             "Pesquisa por {$search} - " . CONF_SITE_NAME,
-            "Confira os resultados da sua pesquisa para {$search}",
+            "Confira os resultados de sua pesquisa para {$search}",
             url("/blog/buscar/{$search}/{$page}"),
             theme("/assets/images/share.jpg")
         );
