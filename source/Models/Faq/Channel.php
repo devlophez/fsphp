@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Source\Controllers\Faq;
+namespace Source\Models\Faq;
 
 
 /**

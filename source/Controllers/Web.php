@@ -4,19 +4,30 @@
 namespace Source\Controllers;
 
 
-use Source\Controllers\Faq\Channel;
-use Source\Controllers\Faq\Question;
+use Source\Models\Faq\Channel;
+use Source\Models\Faq\Question;
 use Source\Core\Connect;
+use Source\Models\Post;
 use Source\Models\User;
 use Source\Support\Pager;
 
+/**
+ * Class Web
+ * @package Source\Controllers
+ */
 class Web extends Controller
 {
+    /**
+     * Web constructor.
+     */
     public function __construct()
     {
         parent::__construct(__DIR__ . "/../../themes/" . CONF_VIEW_THEME . "/");
     }
 
+    /**
+     * SITE HOME
+     */
     public function home(): void
     {
         $head = $this->seo->render(
@@ -32,6 +43,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE ABOUT
+     */
     public function about(): void
     {
         $head = $this->seo->render(
@@ -51,6 +65,10 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE BLOG
+     * @param array|null $data
+     */
     public function blog(?array $data): void
     {
         $head = $this->seo->render(
@@ -69,6 +87,10 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE BLOG POST
+     * @param array $data
+     */
     public function blogPost(array $data): void
     {
         $postName = $data["postName"];
@@ -86,6 +108,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE LOGIN
+     */
     public function login()
     {
         $head = $this->seo->render(
@@ -100,6 +125,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE FORGET
+     */
     public function forget()
     {
         $head = $this->seo->render(
@@ -114,6 +142,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE REGISTER
+     */
     public function register()
     {
         $head = $this->seo->render(
@@ -128,6 +159,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE CONFIRM
+     */
     public function confirm()
     {
         $head = $this->seo->render(
@@ -142,6 +176,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE SUCCESS
+     */
     public function success()
     {
         $head = $this->seo->render(
@@ -156,6 +193,9 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE TERMS
+     */
     public function terms(): void
     {
         $head = $this->seo->render(
@@ -170,6 +210,10 @@ class Web extends Controller
         ]);
     }
 
+    /**
+     * SITE ERROR
+     * @param array $data
+     */
     public function error(array $data): void
     {
         $error = new \stdClass();
