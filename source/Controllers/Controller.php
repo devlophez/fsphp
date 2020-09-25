@@ -5,6 +5,7 @@ namespace Source\Controllers;
 
 
 use Source\Core\View;
+use Source\Support\Message;
 use Source\Support\Seo;
 
 /**
@@ -13,11 +14,14 @@ use Source\Support\Seo;
  */
 class Controller
 {
-    /** @var View  */
+    /** @var View */
     protected $view;
 
-    /** @var Seo  */
+    /** @var Seo */
     protected $seo;
+
+    /** @var Message */
+    protected $message;
 
     /**
      * Controller constructor.
@@ -27,5 +31,6 @@ class Controller
     {
         $this->view = new View($pathToViews);
         $this->seo = new Seo();
+        $this->message = new Message();
     }
 }

@@ -26,6 +26,12 @@ define("CONF_SITE_LANG", "pt_BR");
 define("CONF_SITE_DOMAIN", "upinside.com.br");
 define("CONF_SITE_TITLE", "Gerencie suas finanças com o melhor café");
 define("CONF_SITE_DESC", "O CafeControl é um gerenciador de contas simples, poderoso e gratuito. O prazer de tomar um café e ter o controle total de suas contas.");
+define("CONF_SITE_ADDR_STREET", "Rua Castelo Branco - Campo de Belém");
+define("CONF_SITE_ADDR_NUMBER", "1119 F");
+define("CONF_SITE_ADDR_COMPLEMENT", "Residência");
+define("CONF_SITE_ADDR_CITY", "Caxias");
+define("CONF_SITE_ADDR_STATE", "MA");
+define("CONF_SITE_ADDR_ZIPCODE", "65609-130");
 
 /**
  * SOCIAL
@@ -95,11 +101,11 @@ define("CONF_IMAGE_QUALITY", ["jpg" => 75, "png" => 5]);
 define("CONF_MAIL_HOST", "smtp.sendgrid.net");
 define("CONF_MAIL_PORT", "587");
 define("CONF_MAIL_USER", "apikey");
-define("CONF_MAIL_PASS", "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");
-define("CONF_MAIL_SUPPORT", "developerfsphp@gmail.com");
+define("CONF_MAIL_PASS", "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");
+define("CONF_MAIL_SUPPORT", "pedroleandro@acad.ifma.edu.br");
 define("CONF_MAIL_SENDER", [
     "name" => "Pedro Leandro",
-    "address" => "developerfsphp@gmail.com"
+    "address" => "pedroleandro@acad.ifma.edu.br"
 ]);
 
 define("CONF_MAIL_OPTION_LANG", "br");

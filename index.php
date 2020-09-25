@@ -29,14 +29,17 @@ $route->post("/buscar", "Web::blogSearch");
 $route->get("/buscar/{terms}/{page}", "Web::blogSearch");
 
 //auth
-$route->group("null");
+$route->group(null);
 $route->get("/entrar", "Web::login");
-$route->get("/recuperar", "Web::forget");
+
 $route->get("/cadastrar", "Web::register");
+$route->post("/cadastrar", "Web::register");
+
+$route->get("/recuperar", "Web::forget");
 
 //opt-in
 $route->get("/confirma", "Web::confirm");
-$route->get("/obrigado", "Web::success");
+$route->get("/obrigado/{email}", "Web::success");
 
 //
 

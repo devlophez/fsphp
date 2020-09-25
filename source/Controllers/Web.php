@@ -4,6 +4,7 @@
 namespace Source\Controllers;
 
 
+use Source\Models\Auth;
 use Source\Models\Faq\Channel;
 use Source\Models\Faq\Question;
 use Source\Core\Connect;
@@ -213,9 +214,43 @@ class Web extends Controller
 
     /**
      * SITE REGISTER
+     * @param null|array $data
      */
-    public function register()
+    public function register(?array $data): void
     {
+        if (!empty($data["csrf"])) {
+            if (!csrf_verify($data)) {
+                $json["message"] = $this->message->error("Erro ao enviar, verifique os dados do formulário")->render();
+                echo json_encode($json);
+                return;
+            }
+
+            if (in_array("", $data)) {
+                $json["message"] = $this->message->info("Informe seus dados corretamente para criar a conta")->render();
+                echo json_encode($json);
+                return;
+            }
+
+            $auth = new Auth();
+            $user = new User();
+
+            $user->bootstrap(
+                $data["first_name"],
+                $data["last_name"],
+                $data["email"],
+                $data["password"]
+            );
+
+            if ($auth->register($user)) {
+                $json["redirect"] = url("/confirma");
+            } else {
+                $json["message"] = $auth->message()->render();
+            }
+
+            echo json_encode($json);
+            return;
+        }
+
         $head = $this->seo->render(
             "Criar Conta - " . CONF_SITE_NAME,
             CONF_SITE_DESC,
