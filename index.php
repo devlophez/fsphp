@@ -48,6 +48,13 @@ $route->get("/obrigado/{email}", "Web::success");
 $route->get("/termos", "Web::terms");
 
 /**
+ * APP
+ */
+$route->group("/app");
+$route->get("/", "App::home");
+$route->get('/sair', "App::logoff");
+
+/**
  * ERROR ROUTES
  */
 $route->namespace("Source\Controllers")->group("/whops");

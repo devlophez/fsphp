@@ -7,12 +7,13 @@ namespace Source\Models;
 use Source\Core\Session;
 use Source\Core\View;
 use Source\Support\Email;
+use \Source\Core\Model;
 
 /**
  * Class Auth
  * @package Source\Models
  */
-class Auth extends \Source\Core\Model
+class Auth extends Model
 {
     /**
      * Auth constructor.
@@ -20,6 +21,29 @@ class Auth extends \Source\Core\Model
     public function __construct()
     {
         parent::__construct("user", ["id"], ["email", "password"]);
+    }
+
+    /**
+     * @return User|null
+     */
+    public static function user(): ?User
+    {
+        $session = new Session();
+        if (!$session->has("login")) {
+            return null;
+        }
+
+        return (new User())->findById($session->login);
+    }
+
+    /**
+     * logoff
+     */
+    public static function logoff(): void
+    {
+        $session = new Session();
+        $session->unset("login");
+
     }
 
     /**
