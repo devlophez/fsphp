@@ -150,4 +150,43 @@ class Auth extends Model
         )->send();
         return true;
     }
+
+    /**
+     * @param string $email
+     * @param string $code
+     * @param string $password
+     * @param string $passwordRe
+     * @return bool
+     */
+    public function reset(string $email, string $code, string $password, string $passwordRe): bool
+    {
+        $user = (new User)->findByEmail($email);
+
+        if (!$user) {
+            $this->message->warning("A conta para recuperação de senha não foi encontrada");
+            return false;
+        }
+
+        if ($user->forget != $code) {
+            $this->message->error("Desculpe, mas o código de verificação não é válido");
+            return false;
+        }
+
+        if (!is_passwd($password)) {
+            $min = CONF_PASSWD_MIN_LEN;
+            $max = CONF_PASSWD_MAX_LEN;
+            $this->message->info("Sua senha deve ter entre {$min} e {$max} caracteres");
+            return false;
+        }
+
+        if ($password != $passwordRe) {
+            $this->message->warning("As senhas informadas são diferentes");
+            return false;
+        }
+
+        $user->password = $password;
+        $user->forget = null;
+        $user->save();
+        return true;
+    }
 }
