@@ -37,6 +37,10 @@ $route->get("/cadastrar", "Web::register");
 $route->post("/cadastrar", "Web::register");
 
 $route->get("/recuperar", "Web::forget");
+$route->post("/recuperar", "Web::forget");
+
+$route->get("/resetar/{code}", "Web::reset");
+$route->post("/resetar", "Web::reset");
 
 //opt-in
 $route->get("/confirma", "Web::confirm");
