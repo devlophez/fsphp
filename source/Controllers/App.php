@@ -32,7 +32,7 @@ class App extends Controller
     }
 
     /**
-     *
+     * APP HOME
      */
     public function home()
     {
@@ -50,7 +50,7 @@ class App extends Controller
     }
 
     /**
-     *
+     * APP LOGOFF
      */
     public function logoff()
     {

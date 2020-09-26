@@ -8,7 +8,7 @@ use Source\Support\Seo;
 /**
  * FSPHP | Class Controller
  *
- * @author Robson V. Leite <cursos@upinside.com.br>
+ * @author Pedro Leandro Gomes da Silva <pedro.leandrog@gmail.com>
  * @package Source\Core
  */
 class Controller
