@@ -13,5 +13,11 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306/fsphp_pdo</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="cafecontrol@localhost" uuid="1b5752d1-ea6c-4b27-a807-8b188a44113f">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/cafecontrol</jdbc-url>
+    </data-source>
   </component>
 </project>

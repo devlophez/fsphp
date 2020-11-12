@@ -12,6 +12,7 @@ use Source\Models\Faq\Question;
 use Source\Core\Connect;
 use Source\Models\Post;
 use Source\Models\User;
+use Source\Support\Email;
 use Source\Support\Pager;
 
 /**
