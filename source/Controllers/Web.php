@@ -254,7 +254,7 @@ class Web extends Controller
             if ($login) {
                 $json["redirect"] = url("/app");
             } else {
-                $json["message"] = $auth->message()->render();
+                $json["message"] = $auth->message()->before("Whoooops")->render();
             }
 
             echo json_encode($json);

@@ -105,7 +105,7 @@ class Auth extends Model
         }
 
         if (!password_verify($password, $user->password)) {
-            $this->message->warning("A senha informada não confere");
+            $this->message->error("A senha informada não confere");
             return false;
         }
 
