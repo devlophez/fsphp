@@ -29,11 +29,11 @@ class Auth extends Model
     public static function user(): ?User
     {
         $session = new Session();
-        if (!$session->has("login")) {
+        if (!$session->has("authUser")) {
             return null;
         }
 
-        return (new User())->findById($session->login);
+        return (new User())->findById($session->authUser);
     }
 
     /**
@@ -42,7 +42,7 @@ class Auth extends Model
     public static function logoff(): void
     {
         $session = new Session();
-        $session->unset("login");
+        $session->unset("authUser");
 
     }
 
@@ -115,7 +115,7 @@ class Auth extends Model
         }
 
         //Login
-        (new Session())->set("login", $user->id);
+        (new Session())->set("authUser", $user->id);
         $this->message->success("Bem vindo ao " . CONF_SITE_NAME . ", {$user->first_name}")->flash();
         return true;
     }
